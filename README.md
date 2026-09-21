@@ -10,6 +10,13 @@ brew install --cask gdelolmo7/tap/airlock
 Needs a Mac with a notch running macOS 26 or later. 14 days free, then a
 subscription; see [useairlock.app](https://useairlock.app).
 
+Already installed Airlock from the website? Let Homebrew take over that copy
+instead of downloading a second one:
+
+```bash
+brew install --cask --adopt gdelolmo7/tap/airlock
+```
+
 ## Updates
 
 Airlock updates itself, so `brew upgrade` leaves it alone unless you pass
