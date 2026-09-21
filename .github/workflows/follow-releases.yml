@@ -1,0 +1,38 @@
+name: Follow Airlock releases
+
+# Checks the appcast a few times a day and moves the cask to a new release once
+# the download passes the checks in .github/scripts/bump-airlock.sh.
+# "Run workflow" on the Actions tab does the same thing on demand.
+on:
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: follow-releases
+  cancel-in-progress: false
+
+jobs:
+  bump:
+    runs-on: macos-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Check the appcast and verify any new build
+        id: bump
+        run: .github/scripts/bump-airlock.sh
+
+      - name: Commit the new version
+        if: steps.bump.outputs.version != ''
+        env:
+          VERSION: ${{ steps.bump.outputs.version }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Casks/airlock.rb
+          git commit -m "airlock $VERSION"
+          git push
