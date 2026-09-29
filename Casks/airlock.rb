@@ -1,6 +1,6 @@
 cask "airlock" do
-  version "1.0.12"
-  sha256 "d170cfd21a3401eaaa2f5c6cf8c32cd0beacb025c661a04a2f2776b71f4bc4e5"
+  version "1.0.13"
+  sha256 "8e488a7a6ce8a056a3be9cd7b1b0a01d9e177a8e2058835edd6922cdd27e6c09"
 
   url "https://useairlock.app/downloads/Airlock-#{version}.dmg"
   name "Airlock"
