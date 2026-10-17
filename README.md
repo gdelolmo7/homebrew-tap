@@ -7,8 +7,8 @@ a shelf for files, sound, meetings, and approvals for Claude Code and Codex.
 brew install --cask gdelolmo7/tap/airlock
 ```
 
-Needs a Mac with a notch running macOS 26 or later. 14 days free, then a
-subscription; see [useairlock.app](https://useairlock.app).
+Needs a Mac with a notch running macOS 26 or later. Free to start; Plus and
+Pro add more, see [useairlock.app](https://useairlock.app).
 
 Already installed Airlock from the website? Let Homebrew take over that copy
 instead of downloading a second one:
